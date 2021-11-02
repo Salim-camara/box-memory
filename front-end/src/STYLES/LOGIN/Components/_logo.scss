@@ -1,0 +1,19 @@
+.logocontainer {
+    @include dsf(center, center);
+}
+
+
+.logo {
+    font-family: 'Amatic SC', cursive;
+    text-transform: uppercase;
+
+    font-size: 60px;
+
+    color: $secondary-color;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(92deg, $green, $red);
+
+    animation: hue 10s infinite linear;
+}
+
