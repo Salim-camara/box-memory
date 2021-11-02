@@ -1,0 +1,15 @@
+.conn__form {
+    margin: $border-margin;
+
+    &__password {
+        margin-top: 10px;
+    }
+}
+
+.p--conn {
+    margin: 0 0 0 5px;
+}
+
+.inp--conn {
+    @include input();
+}

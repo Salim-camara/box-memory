@@ -15,7 +15,7 @@ const Inscription = () => {
 
                 <div className="insc__form__pseudo">
                     <p className="p--insc">Entrez votre pseudo</p>
-                    <input type="text" className="inp--insc" placeholder="Ex: Chrispy62, Snow_white_my_queen, Poulette..." />
+                    <input type="text" className="inp--insc" placeholder="Ex: Chrispyqueen62, Snow_white_my_queen, Poulette..." />
                 </div>
 
                 <div className="insc__form__password">
