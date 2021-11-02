@@ -12,3 +12,25 @@
     justify-content: $e;
     align-items: $f;
 }
+
+// boutons
+@mixin button($e: $secondary-color, $f: 60%, $g: 50px) {
+    background-color: $e;
+    width: $f;
+    height: $g;
+    color: $bgc;
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    font-family: $title-font;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+// inputs
+@mixin input($e: $primary-color, $f: $secondary-color) {
+    width: 100%;
+    height: 40px;
+    background-color: $e;
+    border-radius: 10px;
+    border: 2px solid $f;
+} 

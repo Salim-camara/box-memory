@@ -7,8 +7,8 @@ const Navigation = () => {
     return(
         
         <div className="nav">
-            <NavLink exact to="/inscription" className="nav--inscription" activeClassName="nav-active"> Inscription </NavLink>
-            <NavLink exact to="/connexion" className="nav--connexion" activeClassName="nav-active"> Connexion </NavLink>
+            <NavLink exact to="/inscription" className="nav--insc" activeClassName="nav-active"> Inscription </NavLink>
+            <NavLink exact to="/connexion" className="nav--conn" activeClassName="nav-active"> Connexion </NavLink>
         </div>
     )
 }

@@ -8,27 +8,29 @@ const Inscription = () => {
     return(
         <div className="insc">
 
-            {/* <Navigation /> */}
+            <Navigation />
             <Logo />
 
             <form className="insc__form">
 
                 <div className="insc__form__pseudo">
-                    <p>Entrez votre pseudo</p>
-                    <input type="text" placeholder="Ex: Chrispy62, Snow_white_my_queen, Poulette..." />
+                    <p className="p--insc">Entrez votre pseudo</p>
+                    <input type="text" className="inp--insc" placeholder="Ex: Chrispy62, Snow_white_my_queen, Poulette..." />
                 </div>
 
                 <div className="insc__form__password">
-                    <p>Mot de passe</p>
-                    <input type="password" />
+                    <p className="p--insc">Mot de passe</p>
+                    <input type="password" className="inp--insc" />
                 </div>
 
                 <div className="insc__form__check">
-                    <p>Confirmez mot de passe</p>
-                    <input type="password" />
+                    <p className="p--insc">Confirmez mot de passe</p>
+                    <input type="password" className="inp--insc" />
                 </div>
 
-                <button>C'est parti !</button>
+                <div className="buttoncontainer">
+                    <button className="buttoncontainer--button">C'est parti !</button>
+                </div>    
 
             </form>
 

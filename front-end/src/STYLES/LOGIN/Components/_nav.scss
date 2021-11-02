@@ -1,0 +1,21 @@
+.nav {
+    @include dsf(flex-end);
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 10px 15px;
+    
+    &--insc {
+        color: $primary-color;
+        text-decoration: none;
+    }
+
+    &--conn {
+        color: $primary-color;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+}
+
+.nav-active {
+    border-bottom: 2px solid $secondary-color;
+}
