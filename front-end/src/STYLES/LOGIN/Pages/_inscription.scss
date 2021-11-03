@@ -21,6 +21,10 @@
 
 .inp--insc {
     @include input();
+
+    &:focus {
+        background-color: $secondary-color;
+    }
 }
 
 .buttoncontainer {
@@ -31,4 +35,19 @@
         @include button();
         margin-top: 40px;
     }
+}
+
+.error--password {
+    color: $red;
+    text-align: center;
+    display: none;
+}
+
+.error--pseudo {
+    color: $red;
+    width: 100%;
+    text-align: center;
+    display: none;
+    margin: 0;
+    padding: 10px 0 0 0;
 }
