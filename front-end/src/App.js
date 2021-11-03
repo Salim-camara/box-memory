@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // importation des différents components
 import Inscription from "./LOGIN/Pages/inscription";
 import Connexion from "./LOGIN/Pages/connexion";
+import Accueil from "./HOME/Pages/accueil";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route path="/inscription" exat component={ Inscription } />
         <Route path="/connexion" exact component={ Connexion } />
+        <Route path="/accueil" exact component={ Accueil } />
       </Switch>
     </BrowserRouter>
 

@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 // const path = require('path');
 
 // importation des routes
-// const userRoutes = require('./routes/user');
-// const saucesRoutes = require('./routes/sauce');
+const usersRoutes = require('./routes/users');
+const memoryRoutes = require('./routes/memory');
 
 // autorisation de toutes du CORS
 app.use((req, res, next) => {
@@ -27,9 +27,9 @@ mongoose.connect('mongodb+srv://salim:Aa12345Aa@cluster0.cjmcv.mongodb.net/myFir
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-// création de la route vers la connexion des utilisateurs
-// app.use('/api/auth', userRoutes);
-// app.use('/api/sauces', saucesRoutes);
+// création de l'URL vers les différentes routes
+app.use('', usersRoutes);
+app.use('', memoryRoutes);
 
 // configuration vers le dossier image
 // app.use('/images', express.static(path.join(__dirname, 'images')));
