@@ -15,38 +15,52 @@ const Inscription = () => {
 
         e.preventDefault();
 
+        // Messages d'erreurs
+        const errorPassword = document.querySelector('.error--password');
+        errorPassword.innerHTML = 'Les deux mots de passe ne correspondent pas.';
+        errorPassword.style.display = "none";
+
+        const errorPseudo = document.querySelector('.error--pseudo');
+        errorPseudo.innerHTML = 'Veuillez saisir un pseudo.';
+        errorPseudo.style.display = "none";
+
         if(pseudo == null || pseudo == "") {
 
-            const clean = document.querySelector('.error--password');
-            clean.style.display = "none";
-
-            const error = document.querySelector('.error--pseudo');
-            error.style.display = "inline-block";
+            errorPassword.style.display = "none";
+            errorPseudo.style.display = "inline-block";
             
         } else if(password != check || password == null || password == "" ) {
 
-            const clean = document.querySelector('.error--pseudo');
-            clean.style.display = "none";
-            
-            const error = document.querySelector('.error--password');
-            error.style.display = "block";
+            errorPseudo.style.display = "none";
+            errorPassword.style.display = "block";
             
         } else {
 
-            const clean = document.querySelector('.error--pseudo');
-            clean.style.display = "none";
-
-            const error = document.querySelector('.error--password');
-            error.style.display = "none";
+            errorPseudo.style.display = "none";
+            errorPassword.style.display = "none";
 
             axios.post(config.url, {
                 pseudo,
                 password
             })
                 .then(() => console.log('succès'))
-                .catch(() => console.log('error'));
-        }
-        
+                .catch((err) => {
+
+                    const errorMsg = err.response.data.message;
+
+                    if(errorMsg === 'Votre mot de passe doit contenir au moins 5 caractères') {
+
+                        errorPassword.innerHTML = `${errorMsg}`;
+                        errorPassword.style.display = "block";
+
+                    } else {
+
+                        errorPseudo.innerHTML = `${errorMsg}`;
+                        errorPseudo.style.display = "block";
+                    }
+
+                });
+        } 
 
     }
 
