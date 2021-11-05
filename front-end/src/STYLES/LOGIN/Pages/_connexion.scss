@@ -12,4 +12,15 @@
 
 .inp--conn {
     @include input();
+
+    &:focus {
+        background-color: $secondary-color;
+    }
+}
+
+.error {
+    width: 100%;
+    text-align: center;
+    color: $red;
+    display: none;
 }

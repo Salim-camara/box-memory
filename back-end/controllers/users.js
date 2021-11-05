@@ -33,18 +33,56 @@ exports.signup = (req, res, next) => {
 
 
     if (allRegexTest === true) {
-        
-        const user = new User({
-            pseudo,
-            password
-        })
-        user.save()
-            .then(() => res.status(201).json({ message: 'utilisateur créé'}))
-            .catch((err) => res.status(409).json({ message: 'Ce pseudo est déjà pris, veuillez en saisir un autre.'}));
+
+        bcrypt.hash(req.body.password, 10)
+            .then((hash) => {
+                const user = new User({
+                    pseudo,
+                    password: hash
+                })
+                user.save()
+                    .then(() => res.status(201).json({ message: 'utilisateur créé'}))
+                    .catch(() => res.status(409).json({ message: 'Ce pseudo est déjà pris, veuillez en saisir un autre.'}));
+            })
+            .catch((err) => res.status(500).json({ message: 'bcrypt error '+ err }))
 
     } else {
         res.status(500).json({ message: 'erreur regex' });
     }
 
+}
+
+// Middleware de connexion
+module.exports.signin = (req, res, next) => {
+
+    const pseudo = req.body.pseudo;
+    const password = req.body.password;
+
+    User.findOne({pseudo})
+        .then((user) => {
+
+            bcrypt.compare(password, user.password)
+                .then((passswordState) => {
+
+                    if(!passswordState) {
+
+                        res.status(401).json({ message: 'Mot de passe incorrect.' })
+
+                    } else {
+
+                        const userId = user._id;
+                        res.status(200).json({
+                            userId,
+                            token: token.sign(
+                                { tokenUID: userId },
+                                config.secretKey,
+                                { expiresIn: config.tokenTTL }
+                            ) 
+                        });
+                    }
+                })
+                .catch((err) => res.status(500).json({ message: 'bcrypt error ' + err }));
+        })
+        .catch((err) => res.status(404).json({ message: `Ce pseudo n'existe pas.`}));
 }
 

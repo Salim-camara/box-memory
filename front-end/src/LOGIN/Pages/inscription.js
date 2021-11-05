@@ -39,7 +39,7 @@ const Inscription = () => {
             errorPseudo.style.display = "none";
             errorPassword.style.display = "none";
 
-            axios.post(config.url, {
+            axios.post(`${config.url}/inscription`, {
                 pseudo,
                 password
             })
@@ -48,7 +48,7 @@ const Inscription = () => {
 
                     const errorMsg = err.response.data.message;
 
-                    if(errorMsg === 'Votre mot de passe doit contenir au moins 5 caractères') {
+                    if(errorMsg === 'Votre mot de passe doit contenir au moins 5 caractères.') {
 
                         errorPassword.innerHTML = `${errorMsg}`;
                         errorPassword.style.display = "block";
