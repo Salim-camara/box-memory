@@ -34,7 +34,6 @@ const Connexion = () => {
                 error.style.display = "block";
 
             });
-
     }
 
 
