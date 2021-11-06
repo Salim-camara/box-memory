@@ -1,4 +1,5 @@
 import React from "react";
+import Sidebar from "../Components/sidebar";
 
 // emoji
 import mdr from "../../img/mdr.png";
@@ -12,14 +13,42 @@ import fire from "../../img/fire.png";
 
 const Accueil = () => {
 
+    // Sidebar
+    
+
+    const handleSide = () => {
+        const sidebar = document.querySelector('.sidebar_accueil');
+        const content = document.querySelector('.accueil__container');
+        console.log(sidebar);
+        sidebar.classList.add('activebar');
+        content.classList.add('content--active');
+    }
+
+    const handleContent = () => {
+        const sidebar = document.querySelector('.sidebar_accueil');
+        const content = document.querySelector('.accueil__container');
+        sidebar.classList.remove('activebar');
+        content.classList.remove('content--active');
+    }
+
+
     return(
 
         <div className="accueil">
 
-            <div className="accueil__top">
+            <div className="sidebar_accueil">
+                <Sidebar />
             </div>
 
-            <div className="accueil__container"> 
+            <div className="accueil__top">
+                <div className="accueil__top--text">
+                    Hello Poulette
+                    {/* <span className="contenttext">Hello Poulette</span> */}
+                </div>
+                <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars"></i> </div>
+            </div>
+
+            <div className="accueil__container" onClick={ handleContent }> 
 
                 <h1 className="day">Mercredi</h1>
 
