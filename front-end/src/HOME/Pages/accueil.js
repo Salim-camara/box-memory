@@ -19,15 +19,20 @@ const Accueil = () => {
     const handleSide = () => {
         const sidebar = document.querySelector('.sidebar_accueil');
         const content = document.querySelector('.accueil__container');
-        console.log(sidebar);
-        sidebar.classList.add('activebar');
-        content.classList.add('content--active');
+        const burger = document.querySelector('.burger-icon');
+
+        sidebar.classList.toggle('activebar');
+        burger.classList.toggle('burger-active');
+        content.classList.toggle('content--active');
     }
 
     const handleContent = () => {
         const sidebar = document.querySelector('.sidebar_accueil');
         const content = document.querySelector('.accueil__container');
+        const burger = document.querySelector('.burger-icon');
+
         sidebar.classList.remove('activebar');
+        burger.classList.remove('burger-active');
         content.classList.remove('content--active');
     }
 
@@ -45,7 +50,7 @@ const Accueil = () => {
                     Hello Poulette
                     {/* <span className="contenttext">Hello Poulette</span> */}
                 </div>
-                <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars"></i> </div>
+                <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars burger-icon"></i> </div>
             </div>
 
             <div className="accueil__container" onClick={ handleContent }> 
