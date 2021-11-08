@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/sidebar";
 
-// emoji
+// emojis
 import mdr from "../../img/mdr.png";
 import pleurs from "../../img/pleurs.png";
 import smile from "../../img/smile.png";
@@ -13,6 +13,11 @@ import Tags from "../Components/tags";
 
 
 const Accueil = () => {
+
+    // clear du storage pour les tags
+    useEffect(() => {
+        localStorage.clear();
+    }, []);
 
     // Sidebar
     const handleSide = () => {
@@ -35,7 +40,6 @@ const Accueil = () => {
         content.classList.remove('content--active');
     }
 
-    // test localStorage
 
 
     // Tags
@@ -54,6 +58,19 @@ const Accueil = () => {
         tagContainer.style.display = "block";
 
     } 
+
+    const handleTagsDelete = (e) => {
+
+        e.preventDefault();
+
+        const container = document.querySelector('.container-bubles');
+        const addButton = document.querySelector('.form_accueil__tag--button');
+
+        container.innerHTML = "";
+        addButton.style.display = "block";
+        localStorage.clear();
+
+    }
 
 
     return(
@@ -130,7 +147,13 @@ const Accueil = () => {
 
                     <div className="form_accueil__tag">
                         <h2 className="form_accueil__tag--title h2--tag">Tags</h2>
-                        <button className="form_accueil__tag--button" onClick={ handleTags }>+ Ajouter</button>
+                        <button className="form_accueil__tag--button" onClick={ handleTags }>Ajouter</button>
+                        <button className="form_accueil__tag--button--delete" onClick={ handleTagsDelete }>Suprimer</button>
+                    </div>
+
+                    <div className="container-bubles">
+
+
                     </div>
 
 

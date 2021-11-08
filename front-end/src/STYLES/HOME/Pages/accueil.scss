@@ -72,17 +72,18 @@
     &__emoji {
         @include dsf(space-around);
         width: 100%;
+        margin-bottom: 40px;
 
     }
 
     &--button {
         @include button();
+        margin: 0;
     }
 }
 .button-container {
     @include dsf(center);
     width: 100%;
-    margin-top: 40px;
 }
 
 .emoji {
@@ -98,19 +99,15 @@
 }
 
 .form_accueil__tag {
-
-    position: relative;
-    width: min-content;
+    @include dsf(flex-start, baseline);
+    width: 100%;
+    margin: 0 0 20px 0;
 
     &--title {
-        margin-bottom: 0px;
-        margin: 20 0 0 0;
+        margin-right: 10px;
     }
 
     &--button {
-        position: absolute;
-        top: 4px;
-        right: -110px;
 
         font-size: 20px;
         font-weight: bold;
@@ -118,11 +115,23 @@
         background-color: $green;
         border: none;
         border-radius: 50px;
+        margin-right: 10px;
+
+        &--delete {
+
+            font-size: 20px;
+            font-weight: bold;
+            color: $primary-color;
+            background-color: $red;
+            border: none;
+            border-radius: 50px;
+        }
     }
 }
 
 .h2 {
     &--title {
+        margin-top: 40px;
         margin-bottom: 7px;
     }
 
@@ -137,7 +146,6 @@
     }
 
     &--tag {
-        margin-top: 40px;
         margin-bottom: 7px;
     }
 }
@@ -175,5 +183,9 @@
 
 .contentblur {
     filter: blur(2px);
+}
+
+.container-bubles {
+    height: 50px;
 }
 
