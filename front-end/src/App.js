@@ -7,6 +7,7 @@ import Inscription from "./LOGIN/Pages/inscription";
 import Connexion from "./LOGIN/Pages/connexion";
 import Accueil from "./HOME/Pages/accueil";
 import Sidebar from "./HOME/Components/sidebar";
+import Tags from "./HOME/Components/tags";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/connexion" exact component={ Connexion } />
         <Route path="/accueil" exact component={ Accueil } />
         <Route path="/sidebar" exact component={ Sidebar } />
+        <Route path="/tag" exact component={ Tags } />
       </Switch>
     </BrowserRouter>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../Components/sidebar";
 
 // emoji
@@ -8,14 +8,13 @@ import smile from "../../img/smile.png";
 import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png";
 import fire from "../../img/fire.png";
+import Tags from "../Components/tags";
 
 
 
 const Accueil = () => {
 
     // Sidebar
-    
-
     const handleSide = () => {
         const sidebar = document.querySelector('.sidebar_accueil');
         const content = document.querySelector('.accueil__container');
@@ -36,6 +35,26 @@ const Accueil = () => {
         content.classList.remove('content--active');
     }
 
+    // test localStorage
+
+
+    // Tags
+    const [tag1, setTag1] = useState(null);
+    const [tag2, setTag2] = useState(null);
+
+    const handleTags = (e) => {
+
+        e.preventDefault();
+
+        const addButton = document.querySelector('.form_accueil__tag--button');
+        const tagContainer = document.querySelector('.tagcontainer');
+        const content = document.querySelector('.accueil__container');
+
+        content.classList.add('contentblur');
+        tagContainer.style.display = "block";
+
+    } 
+
 
     return(
 
@@ -44,6 +63,9 @@ const Accueil = () => {
             <div className="sidebar_accueil">
                 <Sidebar />
             </div>
+
+           
+            <Tags />
 
             <div className="accueil__top">
                 <div className="accueil__top--text">
@@ -108,8 +130,9 @@ const Accueil = () => {
 
                     <div className="form_accueil__tag">
                         <h2 className="form_accueil__tag--title h2--tag">Tags</h2>
-                        <button className="form_accueil__tag--button">+ Ajouter</button>
+                        <button className="form_accueil__tag--button" onClick={ handleTags }>+ Ajouter</button>
                     </div>
+
 
                     <div className="button-container">
                         <button className="form_accueil--button">Enregistrer</button>
