@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/sidebar";
+import axios from "axios";
 
 // emojis
 import mdr from "../../img/mdr.png";
@@ -13,6 +14,9 @@ import Tags from "../Components/tags";
 
 
 const Accueil = () => {
+
+    const [title, setTitle] = useState(null);
+    const [desc, setDesc] = useState(null);
 
     // clear du storage pour les tags
     useEffect(() => {
@@ -43,8 +47,6 @@ const Accueil = () => {
 
 
     // Tags
-    const [tag1, setTag1] = useState(null);
-    const [tag2, setTag2] = useState(null);
 
     const handleTags = (e) => {
 
@@ -72,10 +74,13 @@ const Accueil = () => {
 
     }
 
+
     // Emojis
     const [emoji, setEmoji] = useState(null);
 
-    const handleEmojiDelete = () => {
+    const handleEmojiDelete = (e) => {
+        
+        e.preventDefault();
         const radioButtons = document.querySelectorAll(`input[type="radio"]`);
         
         radioButtons.forEach((element) => {
@@ -84,11 +89,48 @@ const Accueil = () => {
         })
     }
 
+
+    // Envoie vers le back
+    // const getStorage = () => {
+    //     return (
+    //         new Promise((resolve) => {
+    //         resolve(setTag1( localStorage.getItem('tag1')));
+    //     }))
+    // }
+
+    // const sync = async function() {
+    //         const result = await getStorage();
+    //         console.log(result);
+    // }
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        console.log(emoji);
-        
+
+        const getStorage = async () => {
+            
+            const tag1 = localStorage.getItem('tag1');
+            const tag2 = localStorage.getItem('tag2');
+            const objectTag = {
+                tag1,
+                tag2
+            }
+            return objectTag;
+        }
+
+        if(title == null || title == "") {
+
+            const errorTitle = document.querySelector('.error--title');
+            errorTitle.style.display = "block";
+
+        } else {
+
+            getStorage().then((tags) => {
+                
+            });
+
+            // axios.post()
+        }
     }
 
 
@@ -120,10 +162,10 @@ const Accueil = () => {
                     <div className="form_accueil__text">
 
                         <h2 className="h2--title">Titre</h2>
-                        <input className="form_accueil__text--title"></input>
+                        <input className="form_accueil__text--title" value={ title } onChange={ (e) => setTitle( e.target.value )}></input>
 
                         <h2 className="h2--desc">Description</h2>
-                        <textarea className="form_accueil__text--desc"></textarea>
+                        <textarea className="form_accueil__text--desc" value={ desc } onChange={ (e) => setDesc( e.target.value )}></textarea>
 
                     </div>
 
@@ -178,6 +220,8 @@ const Accueil = () => {
                     </div>
 
                     <div className="container-bubles"></div>
+
+                    <p className="error--title">Vous devez obligatoirement avoir un titre.</p>
 
 
                     <div className="button-container">
