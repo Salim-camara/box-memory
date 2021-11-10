@@ -72,6 +72,25 @@ const Accueil = () => {
 
     }
 
+    // Emojis
+    const [emoji, setEmoji] = useState(null);
+
+    const handleEmojiDelete = () => {
+        const radioButtons = document.querySelectorAll(`input[type="radio"]`);
+        
+        radioButtons.forEach((element) => {
+            element.checked = false;
+            setEmoji(null);
+        })
+    }
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+        console.log(emoji);
+        
+    }
+
 
     return(
 
@@ -81,13 +100,13 @@ const Accueil = () => {
                 <Sidebar />
             </div>
 
-           
             <Tags />
 
+
+            {/* bloc INPUTS */}
             <div className="accueil__top">
                 <div className="accueil__top--text">
                     Hello Poulette
-                    {/* <span className="contenttext">Hello Poulette</span> */}
                 </div>
                 <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars burger-icon"></i> </div>
             </div>
@@ -96,7 +115,7 @@ const Accueil = () => {
 
                 <h1 className="day">Mercredi</h1>
 
-                <form className="form_accueil">
+                <form className="form_accueil" onSubmit={ handleSubmit }>
 
                     <div className="form_accueil__text">
 
@@ -108,53 +127,57 @@ const Accueil = () => {
 
                     </div>
 
-                    <h2 className="h2--emoji">Emojis</h2>
+                    
+                    {/* Bloc EMOJI */}
+                    <div className="emoji--title">
+                        <h2 className="h2--emoji">Emojis</h2>
+                        <button className="emoji--button" onClick={ handleEmojiDelete }> <i class="fas fa-times-circle"></i></button>
+                    </div>
                     <div className="form_accueil__emoji">
 
-                        <input type="radio" id="smile" className="emoji--inp"></input>
+                        <input type="radio" value="smile" id="smile" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="smile">
                             <img src={ smile } className="emoji"/>
                         </label>
 
-                        <input type="radio" id="bad" className="emoji--inp"></input>
+                        <input type="radio" value="bad" id="bad" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="bad">
                             <img src={ bad } className="emoji"/>
                         </label>
 
-                        <input type="radio" id="pleurs" className="emoji--inp"></input>
+                        <input type="radio" value="pleurs" id="pleurs" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="pleurs">
                             <span className="bgc-img">
                                 <img src={ pleurs } className="emoji"/>
                             </span>
                         </label>
 
-                        <input type="radio" id="mdr" className="emoji--inp"></input>
+                        <input type="radio" value="mdr" id="mdr" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="mdr">
                             <img src={ mdr } className="emoji"/>
                         </label>
 
-                        <input type="radio" id="heart" className="emoji--inp"></input>
+                        <input type="radio" value="heart" id="heart" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="heart">
                             <img src={ heart } className="emoji"/>
                         </label>
 
-                        <input type="radio" id="fire" className="emoji--inp"></input>
+                        <input type="radio" value="fire" id="fire" className="emoji--inp" name="emoji" onChange={ (e) => setEmoji( e.target.value) }></input>
                         <label for="fire">
                             <img src={ fire } className="emoji"/>
                         </label>
 
                     </div>
 
+
+                    {/* bloc TAGS */}
                     <div className="form_accueil__tag">
                         <h2 className="form_accueil__tag--title h2--tag">Tags</h2>
-                        <button className="form_accueil__tag--button" onClick={ handleTags }>Ajouter</button>
-                        <button className="form_accueil__tag--button--delete" onClick={ handleTagsDelete }>Suprimer</button>
+                        <button className="form_accueil__tag--button" onClick={ handleTags }> <i class="fas fa-plus-circle"></i> </button>
+                        <button className="form_accueil__tag--button--delete" onClick={ handleTagsDelete }> <i class="fas fa-times-circle"></i></button>
                     </div>
 
-                    <div className="container-bubles">
-
-
-                    </div>
+                    <div className="container-bubles"></div>
 
 
                     <div className="button-container">

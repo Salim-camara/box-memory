@@ -73,6 +73,7 @@
         @include dsf(space-around);
         width: 100%;
         margin-bottom: 40px;
+        margin-top: 10px;
 
     }
 
@@ -89,13 +90,41 @@
 .emoji {
     width: 40px;
     height: 40px;
-    border-bottom: 2px solid $secondary-color;
-
-    padding-bottom: 5px;
+    // padding-bottom: 5px;
 
     &--inp {
         display: none;
     }
+}
+
+.emoji--title {
+    @include dsf(flex-start, baseline);
+}
+
+.emoji--button {
+    @include dsf(center, center);
+    height: 30px;
+    width: 30px;
+    color: $primary-color;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: $red;
+    border: none;
+}
+
+input[type="radio"]:checked + label {
+    // border-bottom: 2px solid $secondary-color;
+    background-color: $secondary-color;
+
+}
+
+label {
+    @include dsf(center, center);
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border-radius: 50%;
 }
 
 .form_accueil__tag {
@@ -109,18 +138,24 @@
 
     &--button {
 
+        @include dsf(center, center);
         font-size: 20px;
         font-weight: bold;
+        width: 30px;
+        height: 30px;
         color: $primary-color;
         background-color: $green;
         border: none;
-        border-radius: 50px;
+        border-radius: 50%;
         margin-right: 10px;
 
         &--delete {
 
+            @include dsf(center, center);
             font-size: 20px;
             font-weight: bold;
+            width: 30px;
+            height: 30px;
             color: $primary-color;
             background-color: $red;
             border: none;
@@ -143,6 +178,7 @@
     &--emoji {
         margin-top: 40px;
         margin-bottom: 7px;
+        margin-right: 10px;
     }
 
     &--tag {
