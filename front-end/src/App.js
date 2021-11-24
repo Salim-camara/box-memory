@@ -8,6 +8,7 @@ import Connexion from "./LOGIN/Pages/connexion";
 import Accueil from "./HOME/Pages/accueil";
 import Sidebar from "./HOME/Components/sidebar";
 import Tags from "./HOME/Components/tags";
+import Week from "./HOME/Pages/week";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/accueil" exact component={ Accueil } />
         <Route path="/sidebar" exact component={ Sidebar } />
         <Route path="/tag" exact component={ Tags } />
+        <Route path="/week" exact component={ Week } />
       </Switch>
     </BrowserRouter>
 
