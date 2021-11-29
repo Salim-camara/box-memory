@@ -6,9 +6,10 @@ const Card = ({ data }) => {
 
     return(
         <div className="card">
+
+            <p className="card__date">Lundi 30 novembre 2021</p>
             <div className="card__title">
                 <h2 className="h2__card">Anniv de maman</h2>
-                <p className="card__date">Lundi 30 novembre 2021</p>
             </div>
 
             <div className="card__desc">
@@ -20,6 +21,7 @@ const Card = ({ data }) => {
                 <p className="card_tag"># saucisse</p>
             </div>
         </div>
+        
     )
 }
 

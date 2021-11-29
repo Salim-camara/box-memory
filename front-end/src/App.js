@@ -1,5 +1,5 @@
 import React from "react";
-import Style from "./STYLES/main.scss";
+import "./STYLES/main.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // importation des différents components
@@ -9,6 +9,7 @@ import Accueil from "./HOME/Pages/accueil";
 import Sidebar from "./HOME/Components/sidebar";
 import Tags from "./HOME/Components/tags";
 import Week from "./HOME/Pages/week";
+import WeekList from "./HOME/Pages/weekList";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/sidebar" exact component={ Sidebar } />
         <Route path="/tag" exact component={ Tags } />
         <Route path="/week" exact component={ Week } />
+        <Route path="/weeks" exact component={ WeekList } />
       </Switch>
     </BrowserRouter>
 

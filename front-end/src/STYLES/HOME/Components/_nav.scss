@@ -1,0 +1,14 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include dsf(space-between, center);
+    width: 100%;
+    height: 40px;
+    z-index: 9;
+    background-color: $bgc;
+    padding: 5px 0 5px 0;
+    margin: 0;
+    border-bottom: 1px solid $primary-color;
+    font-size: 20px;
+}
