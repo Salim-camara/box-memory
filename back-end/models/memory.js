@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
 const memorySchema = mongoose.Schema({
-    pseudo: { type: String, require: true, unique: true },
-    password: { type: String, require: true }
+    title: { type: String, require: true, allowNull: false },
+    date: { type: String, require: true },
+    desc: { type: String, require: false },
+    emoji: { type: String, require: false },
+    tags: { type: Array, require: false, allowNull: true }
 });
 
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/sidebar";
 import axios from "axios";
+import config from "../../service/config";
 
 // emojis
 import mdr from "../../img/mdr.png";
@@ -126,10 +127,20 @@ const Accueil = () => {
         } else {
 
             getStorage().then((tags) => {
+
+                console.log(tags);
                 
+                axios.post(`${config.url}/memories`, {
+                    title,
+                    desc,
+                    emoji,
+                    tags
+
+                })
+                    .then(() => console.log('message poster avec succès'))
+                    .catch((err) => console.log('erreur axios' + err));
             });
 
-            // axios.post()
         }
     }
 
