@@ -12,21 +12,33 @@ exports.signup = (req, res, next) => {
     const data = req.body;
     const date = Date();
     const newDate = dayjs('2021-11-30').week();
-    const testDate = dayjs();
-    const testString = `${testDate.$y}`;
+    const testDate = 0;
+    const testString = `${testDate.$y}-${testDate.$M}-${testDate.$D}`;
+    let switchTest = 'Décembre';
+    
+    switch (testDate) {
 
-    // const testFonction = () => {
-    //     return(`${testDate.$y}`)
-    // }
-
-    console.log(testDate, testString);
+        case 0: switchTest = 'Janvier';
+        break;
+        case 10: switchTest = 'Novembre';
+        break;
+        default: switchTest = 'Default';
+    
+    }
+    console.log(switchTest);
 
     const memory = new Memory({
         title: data.title,
         desc: data.desc,
         emoji: data.emoji,
         tags: [data.tags.tag1, data.tags.tag2],
-        date: date
+        date,
+        test: {
+            day: 'aujourdhui',
+            month: () => {
+                return ('hello');
+            }
+        }
     })
     memory.save()
         .then(() => res.status(201).json({ message: 'utilisateur créé'}))
