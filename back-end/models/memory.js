@@ -6,7 +6,8 @@ const memorySchema = mongoose.Schema({
     desc: { type: String, require: false },
     emoji: { type: String, require: false },
     tags: { type: Array, require: false, allowNull: true },
-    test: { type: Object, require: false }
+    date: { type: Object, require: true, allowNull: false },
+    week: { type: Number, require: true, allowNull: false }
 });
 
 
