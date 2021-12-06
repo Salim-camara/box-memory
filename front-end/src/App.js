@@ -16,7 +16,7 @@ function App() {
 
     <BrowserRouter>
       <Switch>
-        <Route path="/inscription" exat component={ Inscription } />
+        <Route path="/inscription" exact component={ Inscription } />
         <Route path="/connexion" exact component={ Connexion } />
         <Route path="/accueil" exact component={ Accueil } />
         <Route path="/sidebar" exact component={ Sidebar } />

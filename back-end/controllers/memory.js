@@ -42,3 +42,11 @@ exports.signup = (req, res, next) => {
         .then(() => res.status(201).json({ message: 'souvenir enregistré'}))
         .catch((err) => res.status(500).json({ message: 'erreur enregistrement souvenir ' + err}));
 }
+
+// Middleware GET All
+exports.getAll = (req, res, next) => {
+
+    Memory.find()
+        .then((memories) => res.status(200).json({ data: memories }))
+        .catch((err) => res.status(404).json({ message: 'données introuvable ' + err}));
+}

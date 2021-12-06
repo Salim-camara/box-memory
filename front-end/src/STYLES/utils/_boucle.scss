@@ -1,0 +1,8 @@
+// Animation cascade
+@for $i from 1 to 999 {
+
+    .weeksOfWeekList:nth-child(#{$i}) {
+
+        animation-delay: 0.10s * $i;
+    }
+}

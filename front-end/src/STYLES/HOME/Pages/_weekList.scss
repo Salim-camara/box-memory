@@ -1,0 +1,23 @@
+.weeklist {
+    margin-top: 70px;
+}
+
+.weeksOfWeekList {
+    @include dsf(space-between);
+    border-top: 1px solid $secondary-color;
+    border-bottom: 1px solid $secondary-color;
+    padding: 10px 10px 10px 10px;
+    background-color: lighten($bgc, 7%);
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: cascade 0.5s;
+    animation-fill-mode: forwards;
+    
+}
+
+
+.fa-arrow-right {
+    color: $secondary-color;
+}

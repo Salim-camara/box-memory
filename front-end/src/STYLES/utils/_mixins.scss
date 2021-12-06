@@ -27,7 +27,7 @@
 }
 
 // inputs
-@mixin input($e: lighten($bgc, 10%), $f: $secondary-color) {
+@mixin input($e: lighten($bgc, 7%), $f: $secondary-color) {
     width: 100%;
     height: 40px;
     background-color: $e;

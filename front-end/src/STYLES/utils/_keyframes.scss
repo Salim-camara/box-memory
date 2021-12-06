@@ -6,4 +6,17 @@
     to {
       filter: hue-rotate(-360deg);
     }
+}
+
+
+@keyframes cascade {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+

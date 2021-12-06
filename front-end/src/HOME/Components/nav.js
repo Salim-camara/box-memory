@@ -3,8 +3,6 @@ import React from "react";
 
 const Navigation = ({ donnee }) => {
 
-    console.log(donnee);
-
     const handleSide = () => {
         const sidebar = document.querySelector('.sidebar_accueil');
         const content = document.querySelector('.cards');
