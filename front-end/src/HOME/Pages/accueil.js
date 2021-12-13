@@ -10,8 +10,8 @@ import smile from "../../img/smile.png";
 import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png";
 import fire from "../../img/fire.png";
-import Tags from "../Components/tags";
 
+import Tags from "../Components/tags";
 
 
 const Accueil = () => {

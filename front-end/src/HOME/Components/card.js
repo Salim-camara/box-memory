@@ -1,24 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+// emojis
+import mdr from "../../img/mdr.png";
+import pleurs from "../../img/pleurs.png";
+import smile from "../../img/smile.png";
+import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png";
+import fire from "../../img/fire.png";
 
+const Card = ({ info }) => {
 
-const Card = ({ data }) => {
+    useEffect(() => {
+
+        console.log(info);
+    }, []);
+
+    const day = info.date.day;
+    const dayNum = info.date.dayNum;
+    const month = info.date.month;
+    const year = info.date.year;
+    const title = info.title;
+    const desc = info.desc;
+    const emoji = info.emoji;
+    const tag1 = info.tags[0];
+    const tag2 = info.tags[1];
+    
+    const handleEmoji = () => {
+
+        switch (emoji) {
+
+            case 'mdr': return(mdr);
+            break;
+            case 'pleurs': return(pleurs);
+            break;
+            case 'smile': return(smile);
+            break;
+            case 'bad': return(bad);
+            break;
+            case 'heart': return(heart);
+            break;
+            default: return(fire);
+        }
+    }
 
     return(
         <div className="card">
 
-            <p className="card__date">Lundi 30 novembre 2021</p>
+            <p className="card__date">{day} {dayNum} {month} {year}</p>
             <div className="card__title">
-                <h2 className="h2__card">Anniv de maman</h2>
+                <h2 className="h2__card">{title}</h2>
             </div>
 
             <div className="card__desc">
-            Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor
+                {desc}
             </div>
             <div className="card__tags">
-                <img src={heart} style={{width: '30px', height: '30px'}} />
-                <p className="card_tag"># hello</p>
-                <p className="card_tag"># saucisse</p>
+                <img src={handleEmoji()} style={{width: '30px', height: '30px'}} />
+                {(tag1 !== null) && (
+                    <p className="card_tag">#{tag1}</p>
+                )}
+                {(tag2 !== null) && (
+                    <p className="card_tag">#{tag2}</p>
+                )}
             </div>
         </div>
         
