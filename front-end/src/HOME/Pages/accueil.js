@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/sidebar";
 import axios from "axios";
 import config from "../../service/config";
+import Tags from "../Components/tags";
+import axiosHeaders from "../../service/axiosHeaders";
 
 // emojis
 import mdr from "../../img/mdr.png";
@@ -11,7 +13,6 @@ import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png";
 import fire from "../../img/fire.png";
 
-import Tags from "../Components/tags";
 
 
 const Accueil = () => {
@@ -21,7 +22,19 @@ const Accueil = () => {
 
     // clear du storage pour les tags
     useEffect(() => {
-        localStorage.clear();
+
+        const test = localStorage.getItem('tag1');
+        const test2 = localStorage.getItem('tag2');
+
+        if(test != null || test != undefined) {
+
+            localStorage.removeItem('tag1');
+
+        } else if((test != null || test != undefined) && (test2 != null || test2 != undefined)) {
+
+            localStorage.removeItem('tag1');
+            localStorage.removeItem('tag2');
+        }
     }, []);
 
     // Sidebar
@@ -71,7 +84,9 @@ const Accueil = () => {
 
         container.innerHTML = "";
         addButton.style.display = "block";
-        localStorage.clear();
+        localStorage.removeItem('tag1');
+        localStorage.removeItem('tag2');
+
 
     }
 
@@ -89,20 +104,6 @@ const Accueil = () => {
             setEmoji(null);
         })
     }
-
-
-    // Envoie vers le back
-    // const getStorage = () => {
-    //     return (
-    //         new Promise((resolve) => {
-    //         resolve(setTag1( localStorage.getItem('tag1')));
-    //     }))
-    // }
-
-    // const sync = async function() {
-    //         const result = await getStorage();
-    //         console.log(result);
-    // }
 
     const handleSubmit = (e) => {
 
@@ -136,7 +137,7 @@ const Accueil = () => {
                     emoji,
                     tags
 
-                })
+                }, axiosHeaders.headers)
                     .then(() => console.log('message poster avec succès'))
                     .catch((err) => console.log('erreur axios' + err));
             });

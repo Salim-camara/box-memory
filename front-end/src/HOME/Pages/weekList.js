@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Navigation from "../Components/nav";
-import config from "../../service/config";
 import { useHistory } from "react-router";
+import axios from "axios";
+import config from "../../service/config";
+import axiosHeaders from "../../service/axiosHeaders";
 
+import Navigation from "../Components/nav";
 
 
 const WeekList = () => {
@@ -12,7 +13,7 @@ const WeekList = () => {
 
     useEffect(() => {
 
-        axios.get(`${config.url}/memories`)
+        axios.get(`${config.url}/memories_weeks`, axiosHeaders.headers)
             .then((memories) => {
 
                 const data = memories.data.data;

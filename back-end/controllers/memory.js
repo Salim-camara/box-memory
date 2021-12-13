@@ -1,14 +1,21 @@
 const Memory = require('../models/memory');
-const bcrypt = require('bcrypt');
-const token = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const switcher = require('../service/switcher');
+const config = require('../service/config');
 const weekOfYear = require('dayjs/plugin/weekOfYear');
 const dayjs = require('dayjs');
 dayjs.extend(weekOfYear);
 
+
+
+
 // Middleware POST
 exports.signup = (req, res, next) => {
-
+    
+    //  $$$$$$$$$$$$ récupération du token $$$$$$$$$$
+    const userToken = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(userToken, config.secretKey);
+    const userId = decodedToken.tokenUID;
 
     const data = req.body;
 
@@ -27,6 +34,7 @@ exports.signup = (req, res, next) => {
         emoji: data.emoji,
         tags: [data.tags.tag1, data.tags.tag2],
         week,
+        userId,
         date: {
             // switcher convertit les nombres des jours/mois en string 
             day: switcher.switchDay(dayNumber, day),
@@ -43,10 +51,33 @@ exports.signup = (req, res, next) => {
         .catch((err) => res.status(500).json({ message: 'erreur enregistrement souvenir ' + err}));
 }
 
-// Middleware GET All
-exports.getAll = (req, res, next) => {
+// Middleware GET All Weeks
+exports.getAllWeeks = (req, res, next) => {
 
-    Memory.find()
+    //  $$$$$$$$$$$$ récupération du token $$$$$$$$$$
+    const userToken = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(userToken, config.secretKey);
+    const userId = decodedToken.tokenUID;
+
+    Memory.find({ userId })
         .then((memories) => res.status(200).json({ data: memories }))
         .catch((err) => res.status(404).json({ message: 'données introuvable ' + err}));
+}
+
+// Middleware GET WEEK
+exports.getWeek = (req, res, next) => {
+
+    //  $$$$$$$$$$$$ récupération du token $$$$$$$$$$
+    const userToken = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(userToken, config.secretKey);
+    const userId = decodedToken.tokenUID;
+
+    const week = req.body.weekNum;
+
+
+    Memory.find({ userId, week })
+        .then((memories) => res.status(200).json({ data: memories }))
+        .catch((err) => res.status(404).json({ message: 'données introuvable ' + err}));
+
+
 }
