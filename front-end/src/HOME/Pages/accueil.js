@@ -10,7 +10,7 @@ import mdr from "../../img/mdr.png";
 import pleurs from "../../img/pleurs.png";
 import smile from "../../img/smile.png";
 import bad from "../../img/bad.png";
-import heart from "../../img/coeur.png";
+import heart from "../../img/coeur.png"; 
 import fire from "../../img/fire.png";
 
 

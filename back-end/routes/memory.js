@@ -7,7 +7,8 @@ const auth = require('../middleware/auth');
 router.post('/memories', auth, memoryControl.signup);
 // route get
 router.get('/memories_weeks', auth, memoryControl.getAllWeeks);
-router.post('/memories_week', memoryControl.getWeek);
+router.post('/memories_week', auth, memoryControl.getWeek);
+router.get('/memories_accueil', auth, memoryControl.getDay);
 
 
 module.exports = router;

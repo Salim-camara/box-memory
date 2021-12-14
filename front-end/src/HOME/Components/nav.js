@@ -5,13 +5,13 @@ const Navigation = ({ donnee }) => {
 
     const handleSide = () => {
         const sidebar = document.querySelector('.sidebar_accueil');
-        const content = document.querySelector('.cards');
+        const content = document.querySelector('.toggleSidebar');
         const burger = document.querySelector('.burger-icon');
         
         sidebar.classList.toggle('activebar');
         burger.classList.toggle('burger-active');
         content.classList.toggle('content--active');
-    }
+    } 
 
     return(
 

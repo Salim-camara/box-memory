@@ -5,6 +5,7 @@ import config from "../../service/config";
 import axiosHeaders from "../../service/axiosHeaders";
 
 import Navigation from "../Components/nav";
+import Sidebar from "../Components/sidebar";
 
 
 const WeekList = () => {
@@ -51,7 +52,7 @@ const WeekList = () => {
                         week.forEach((item) => {
                             
                             item.addEventListener('click', () => {
-                                
+
                                 const weekId = item.id;
                                 historique.push(`/week#${weekId}`);
 
@@ -65,15 +66,24 @@ const WeekList = () => {
 
     }, []);
 
+    const handleSidebarDelete = () => {
+
+        const sidebar = document.querySelector('.sidebar_accueil');
+        sidebar.classList.remove('activebar');
+    }
+
     return(
         <div className="weeklist">
 
             <Navigation />
+            <div className="sidebar_accueil">
+                <Sidebar />
+            </div>
 
             <div className="filter">
             </div>
 
-            <div className="weeks">
+            <div className="weeks toggleSidebar" onClick={ handleSidebarDelete }>
             </div>
 
 

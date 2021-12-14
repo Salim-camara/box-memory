@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../LOGIN/Components/logo";
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -12,10 +12,14 @@ const Sidebar = () => {
                 Boîte à souvenir
             </div>
 
-            <span className="sidebar--link">Aujourd'hui</span>
-            <span className="sidebar--link">Mes souvenirs</span>
-            <span className="sidebar--link">Rappels</span>
-            <span className="sidebar--link">Paramètres</span>
+            <NavLink exact to="/accueil" className="sidebar--link" activeClassname="test">
+                Aujourd'hui 
+            </NavLink>
+            <NavLink exact to="/weeks" className="sidebar--link" activeClassname="test">
+                Mes souvenirs
+            </NavLink>
+            <span className="sidebar--link">Rappels (en dev.)</span>
+            <span className="sidebar--link">Paramètres (en dev.)</span>
             <span className="sidebar--link deconnec">Déconnexion</span>
         </div>
     )

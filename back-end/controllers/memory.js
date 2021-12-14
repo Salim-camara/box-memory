@@ -78,6 +78,11 @@ exports.getWeek = (req, res, next) => {
     Memory.find({ userId, week })
         .then((memories) => res.status(200).json({ data: memories }))
         .catch((err) => res.status(404).json({ message: 'données introuvable ' + err}));
+}
 
+// Middleware check jour et existance souvenir
+exports.getDay = (req, res, next) => {
+
+    
 
 }

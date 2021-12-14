@@ -16,27 +16,17 @@ const Week = () => {
 
     useEffect(() => {
 
-        const urlWeekNum = document.location.hash[1];
+        const urlWeekNum = document.location.hash.slice(1);
         setWeekNum(urlWeekNum);
 
-        axios.post(`${config.url}/memories_week`, {weekNum: 52}, axiosHeaders.headers)
+        axios.post(`${config.url}/memories_week`, {weekNum: urlWeekNum}, axiosHeaders.headers)
             .then((data) => {
 
-                console.log(data);
-
-
-                // test
-                // axios.get(`${config.url}/memories_week`)
-                //     .then((data) => {
+                const item = data.data.data
         
-                //         const item = data.data.data
-        
-                //         setAllCard(item.map((info) => (
-                //             <Card info= { info }/>
-                //         )))
-        
-                //     })
-                //     .catch((err) => console.log('erreur récupération axios ' + err));
+                setAllCard(item.map((info) => (
+                    <Card info= { info }/>
+                )))
 
             })
             .catch((err) => { console.log('error ' + err)})
@@ -57,7 +47,7 @@ const Week = () => {
                 <h1>Semaine {weekNum}</h1>
             </div>
 
-            <div className="cards">
+            <div className="cards toggleSidebar">
                 {allCard}
             </div>
 
