@@ -19,10 +19,12 @@ const Accueil = () => {
 
     const [title, setTitle] = useState(null);
     const [desc, setDesc] = useState(null);
+    const [day, setDay] = useState(null);
+    const [pseudo, setPseudo] = useState(null);
 
-    // clear du storage pour les tags
     useEffect(() => {
-
+        
+        // clear du storage pour les tags
         const test = localStorage.getItem('tag1');
         const test2 = localStorage.getItem('tag2');
 
@@ -35,7 +37,17 @@ const Accueil = () => {
             localStorage.removeItem('tag1');
             localStorage.removeItem('tag2');
         }
+
+        // jour dynamique
+        axios.get(`${config.url}/extras_accueil`, axiosHeaders.headers)
+            .then((res) => { 
+                setDay(res.data.data.jour);
+                setPseudo(res.data.data.pseudo);
+            })
+            .catch((err) => { console.log(err) });
+
     }, []);
+
 
     // Sidebar
     const handleSide = () => {
@@ -61,12 +73,10 @@ const Accueil = () => {
 
 
     // Tags
-
     const handleTags = (e) => {
 
         e.preventDefault();
 
-        const addButton = document.querySelector('.form_accueil__tag--button');
         const tagContainer = document.querySelector('.tagcontainer');
         const content = document.querySelector('.accueil__container');
 
@@ -160,14 +170,14 @@ const Accueil = () => {
             {/* bloc INPUTS */}
             <div className="accueil__top">
                 <div className="accueil__top--text">
-                    Hello Poulette
+                    Hello {pseudo}
                 </div>
                 <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars burger-icon"></i> </div>
             </div>
 
             <div className="accueil__container" onClick={ handleContent }> 
 
-                <h1 className="day">Mercredi</h1>
+                <h1 className="day">{day}</h1>
 
                 <form className="form_accueil" onSubmit={ handleSubmit }>
 

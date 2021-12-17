@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 // importation des routes
 const usersRoutes = require('./routes/users');
 const memoryRoutes = require('./routes/memory');
+const extrasRoutes = require('./routes/extras');
 
 // autorisation de toutes du CORS
 app.use((req, res, next) => {
@@ -30,6 +31,7 @@ mongoose.connect('mongodb+srv://salim:Aa12345Aa@cluster0.cjmcv.mongodb.net/myFir
 // création de l'URL vers les différentes routes
 app.use('', usersRoutes);
 app.use('', memoryRoutes);
+app.use('', extrasRoutes);
 
 // configuration vers le dossier image
 // app.use('/images', express.static(path.join(__dirname, 'images')));
