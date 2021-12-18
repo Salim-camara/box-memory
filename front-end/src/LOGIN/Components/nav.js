@@ -6,9 +6,9 @@ const Navigation = () => {
 
     return(
         
-        <div className="nav">
-            <NavLink exact to="/inscription" className="nav--insc" activeClassName="nav-active"> Inscription </NavLink>
-            <NavLink exact to="/connexion" className="nav--conn" activeClassName="nav-active"> Connexion </NavLink>
+        <div className="nav__login">
+            <NavLink exact to="/inscription" className="nav__login--insc" activeClassName="nav-active__login"> Inscription </NavLink>
+            <NavLink exact to="/connexion" className="nav__login--conn" activeClassName="nav-active__login"> Connexion </NavLink>
         </div>
     )
 }

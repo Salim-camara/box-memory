@@ -11,6 +11,11 @@ import Sidebar from "../Components/sidebar";
 const WeekList = () => {
 
     const historique = useHistory();
+    // data pour navbar
+    const data = {
+        goBack: '/accueil',
+        text: 'Mes souvenirs'
+    }
 
     useEffect(() => {
 
@@ -75,7 +80,7 @@ const WeekList = () => {
     return(
         <div className="weeklist">
 
-            <Navigation />
+            <Navigation data= {data}/>
             <div className="sidebar_accueil">
                 <Sidebar />
             </div>

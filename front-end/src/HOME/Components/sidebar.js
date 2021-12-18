@@ -12,10 +12,10 @@ const Sidebar = () => {
                 Boîte à souvenir
             </div>
 
-            <NavLink exact to="/accueil" className="sidebar--link" activeClassname="test">
+            <NavLink exact to="/accueil" className="sidebar--link" activeClassname="test" activeClassName="nav-active__login">
                 Aujourd'hui 
             </NavLink>
-            <NavLink exact to="/weeks" className="sidebar--link" activeClassname="test">
+            <NavLink exact to="/weeks" className="sidebar--link" activeClassname="test" activeClassName="nav-active__login">
                 Mes souvenirs
             </NavLink>
             <span className="sidebar--link">Rappels (en dev.)</span>

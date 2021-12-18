@@ -13,6 +13,11 @@ const Week = () => {
     const [allCard, setAllCard] = useState(null);
     const [weekNum, setWeekNum] = useState(null);
     const token = localStorage.getItem('token');
+    // data pour navbar
+    const data = {
+        goBack: '/weeks',
+        text: `Résumé de la semaine`
+    }
 
     useEffect(() => {
 
@@ -25,7 +30,7 @@ const Week = () => {
                 const item = data.data.data
         
                 setAllCard(item.map((info) => (
-                    <Card info= { info }/>
+                    <Card info={ info }/>
                 )))
 
             })
@@ -38,7 +43,7 @@ const Week = () => {
     return(
         <div className="week">
 
-            <Navigation />
+            <Navigation data={ data }/>
             <div className="sidebar_accueil">
                 <Sidebar />
             </div>

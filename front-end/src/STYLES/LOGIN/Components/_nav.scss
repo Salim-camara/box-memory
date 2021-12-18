@@ -1,4 +1,4 @@
-.nav {
+.nav__login {
     @include dsf(flex-end);
     font-size: 15px;
     text-transform: uppercase;
@@ -16,6 +16,6 @@
     }
 }
 
-.nav-active {
+.nav-active__login {
     border-bottom: 2px solid $secondary-color;
 }
