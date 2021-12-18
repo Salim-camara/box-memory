@@ -1,7 +1,22 @@
 .memorie {
     position: fixed;
-    margin-top: 100px;
+    height: 100vh;
     @include dsc(center, center);
-    padding: 0 $border-margin 0 $border-margin;
+    padding: 100px $border-margin 0 $border-margin;
     text-align: center;
+    display: none;
+    z-index: 3;
+    animation-name: memorieCheck;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+
+    &--title {
+        color: $secondary-color;
+    }
+
+}
+
+.blurMsgCheck {
+    opacity: 0.3;
+    filter: blur(2.5px);
 }

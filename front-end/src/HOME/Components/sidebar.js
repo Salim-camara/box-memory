@@ -20,7 +20,9 @@ const Sidebar = () => {
             </NavLink>
             <span className="sidebar--link">Rappels (en dev.)</span>
             <span className="sidebar--link">Paramètres (en dev.)</span>
-            <span className="sidebar--link deconnec">Déconnexion</span>
+            <NavLink exact to="/connexion" className="sidebar--link" activeClassname="test" activeClassName="nav-active__login">
+                Déconnexion
+            </NavLink>
         </div>
     )
 }

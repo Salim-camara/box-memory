@@ -5,6 +5,7 @@ import Navigation from "../Components/nav";
 import Sidebar from "../Components/sidebar";
 import config from "../../service/config";
 import axiosHeaders from "../../service/axiosHeaders";
+import { useHistory } from "react-router";
 
 
 
@@ -12,7 +13,9 @@ const Week = () => {
 
     const [allCard, setAllCard] = useState(null);
     const [weekNum, setWeekNum] = useState(null);
-    const token = localStorage.getItem('token');
+
+    const historique = useHistory();
+
     // data pour navbar
     const data = {
         goBack: '/weeks',
@@ -34,7 +37,7 @@ const Week = () => {
                 )))
 
             })
-            .catch((err) => { console.log('error ' + err)})
+            .catch((err) => historique.push('/error'))
 
 
     }, []);

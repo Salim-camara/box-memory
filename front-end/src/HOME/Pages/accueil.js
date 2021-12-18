@@ -13,6 +13,7 @@ import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png"; 
 import fire from "../../img/fire.png";
 import MemorieExist from "../Components/memorieExist";
+import { useHistory } from "react-router";
 
 
 
@@ -24,6 +25,8 @@ const Accueil = () => {
     const [pseudo, setPseudo] = useState(null);
     const [checkMemorie, setCheckMemorie] = useState(false);
 
+    const historique = useHistory();
+
     useEffect(() => {
 
         // test de l'existance du souvenir
@@ -31,10 +34,10 @@ const Accueil = () => {
             .then((res) => {
                 console.log(res);
                 if(res.data.data !== null) {
-                    console.log('blur');
+                    setCheckMemorie(true);
                 }
             })
-            .catch((err) => console.log(err));
+            .catch((err) => '');
         
         // clear du storage pour les tags
         const test = localStorage.getItem('tag1');
@@ -56,14 +59,18 @@ const Accueil = () => {
                 setDay(res.data.data.jour);
                 setPseudo(res.data.data.pseudo);
             })
-            .catch((err) => { console.log(err) });
+            .catch((err) => '');
 
     }, []);
 
+
+    // test de l'existance du souvenir
     if(checkMemorie == true) {
-        console.log('true')
-    } else {
-        console.log('false')
+        const blur = document.querySelector('.accueil__container');
+        const msgCheck = document.querySelector('.memorie');
+
+        msgCheck.style.display = "block";
+        blur.classList.add('blurMsgCheck');
     }
 
 
@@ -166,7 +173,9 @@ const Accueil = () => {
                     tags
 
                 }, axiosHeaders.headers)
-                    .then(() => console.log('message poster avec succès'))
+                    .then(() => {
+                        window.location.reload();
+                    })
                     .catch((err) => console.log('erreur axios' + err));
             });
 
@@ -179,7 +188,10 @@ const Accueil = () => {
         
         <div className="accueil">
 
+
             <MemorieExist />
+
+
 
             <div className="sidebar_accueil">
                 <Sidebar />

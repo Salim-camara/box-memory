@@ -67,7 +67,7 @@ const WeekList = () => {
                     .catch((err) => console.log(`erreur lors de l'affectation de l'url ` + err))
 
             })
-            .catch((err) => console.log('erreur récupération souvenirs ' + err));
+            .catch((err) => historique.push('/error'));
 
     }, []);
 

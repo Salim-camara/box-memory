@@ -8,7 +8,7 @@
     }
 }
 
-
+// Cascade weeks
 @keyframes cascade {
   from {
     transform: translateY(10px);
@@ -16,6 +16,18 @@
   }
   to {
     transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+// MemorieCheck
+@keyframes memorieCheck {
+  from {
+    transform: scale(0.9);
+    opacity: 50%;
+  }
+  to {
+    transform: scale(1);
     opacity: 100%;
   }
 }
