@@ -16,10 +16,12 @@
 
 // HOME
 @import "./HOME/Components/nav";
-@import "./HOME/Pages/week";
-@import "./HOME/Pages/weekList";
 @import "./HOME/Components/card";
 @import "./HOME/Components/sidebar";
 @import "./HOME/Components/tags";
+@import "./HOME/Components/errorAuth";
+@import "./HOME/Components/memorieExist";
+@import "./HOME/Pages/week";
+@import "./HOME/Pages/weekList";
 @import "./HOME/Pages/accueil";
 

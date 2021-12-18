@@ -10,6 +10,7 @@ import Sidebar from "./HOME/Components/sidebar";
 import Tags from "./HOME/Components/tags";
 import Week from "./HOME/Pages/week";
 import WeekList from "./HOME/Pages/weekList";
+import ErrorAuth from "./HOME/Components/errorAuth";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/tag" exact component={ Tags } />
         <Route path="/week" exact component={ Week } />
         <Route path="/weeks" exact component={ WeekList } />
+        <Route path="/error" exact component={ ErrorAuth } />
       </Switch>
     </BrowserRouter>
 

@@ -1,0 +1,20 @@
+.error__auth {
+    @include dsc(center, center);
+    height: 80vh;
+    padding: 0 $border-margin 0 $border-margin;
+    text-align: center;
+
+    &--title {
+        color: $red;
+        margin-bottom: 50px;
+
+    }
+    &--text {
+        color: $secondary-color;
+        margin: 0;
+    }
+    &--redirection {
+        margin: 0;
+    }
+
+}

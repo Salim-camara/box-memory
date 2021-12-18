@@ -12,6 +12,7 @@ import smile from "../../img/smile.png";
 import bad from "../../img/bad.png";
 import heart from "../../img/coeur.png"; 
 import fire from "../../img/fire.png";
+import MemorieExist from "../Components/memorieExist";
 
 
 
@@ -21,8 +22,19 @@ const Accueil = () => {
     const [desc, setDesc] = useState(null);
     const [day, setDay] = useState(null);
     const [pseudo, setPseudo] = useState(null);
+    const [checkMemorie, setCheckMemorie] = useState(false);
 
     useEffect(() => {
+
+        // test de l'existance du souvenir
+        axios.get(`${config.url}/extras_check`, axiosHeaders.headers)
+            .then((res) => {
+                console.log(res);
+                if(res.data.data !== null) {
+                    console.log('blur');
+                }
+            })
+            .catch((err) => console.log(err));
         
         // clear du storage pour les tags
         const test = localStorage.getItem('tag1');
@@ -47,6 +59,12 @@ const Accueil = () => {
             .catch((err) => { console.log(err) });
 
     }, []);
+
+    if(checkMemorie == true) {
+        console.log('true')
+    } else {
+        console.log('false')
+    }
 
 
     // Sidebar
@@ -158,7 +176,10 @@ const Accueil = () => {
 
     return(
 
+        
         <div className="accueil">
+
+            <MemorieExist />
 
             <div className="sidebar_accueil">
                 <Sidebar />

@@ -29,7 +29,7 @@ const Navigation = ({ data }) => {
             </div>
 
             <div className="nav__content">
-                {data.text}
+                { data.text }
             </div>
 
             <div className="nav__burger" onClick={ handleSide }>
