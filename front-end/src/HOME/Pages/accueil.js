@@ -26,40 +26,38 @@ const Accueil = () => {
     const [checkMemorie, setCheckMemorie] = useState(false);
 
     const historique = useHistory();
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
 
         // test de l'existance du souvenir
-        axios.get(`${config.url}/extras_check`, axiosHeaders.headers)
+        axios.get(`${config.url}/extras_check`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((res) => {
-                console.log(res);
                 if(res.data.data !== null) {
                     setCheckMemorie(true);
                 }
             })
-            .catch((err) => '');
+            .catch((err) => historique.push('/error'));
         
         // clear du storage pour les tags
-        const test = localStorage.getItem('tag1');
-        const test2 = localStorage.getItem('tag2');
-
-        if(test != null || test != undefined) {
-
-            localStorage.removeItem('tag1');
-
-        } else if((test != null || test != undefined) && (test2 != null || test2 != undefined)) {
-
-            localStorage.removeItem('tag1');
-            localStorage.removeItem('tag2');
-        }
+        localStorage.removeItem('tag1');
+        localStorage.removeItem('tag2');
 
         // jour dynamique
-        axios.get(`${config.url}/extras_accueil`, axiosHeaders.headers)
+        axios.get(`${config.url}/extras_accueil`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((res) => { 
                 setDay(res.data.data.jour);
                 setPseudo(res.data.data.pseudo);
             })
-            .catch((err) => '');
+            .catch((err) => historique.push('/error'));
 
     }, []);
 

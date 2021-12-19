@@ -25,7 +25,9 @@ const Connexion = () => {
         })
             .then((data) => {
                 localStorage.setItem('token', data.data.token);
-                historique.push('/accueil');
+                setTimeout(() => {
+                    historique.push('/accueil');
+                }, 0);
             })
             .catch((err) => {
 

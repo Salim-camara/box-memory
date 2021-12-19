@@ -20,7 +20,7 @@ exports.signup = (req, res, next) => {
     const data = req.body;
 
     // il y a une semaine en trop sur le plugin, d'où le -1 (pour la const week)
-    const week = (dayjs().week()) - 1;
+    const week = (dayjs().week() - 1);
     const monthNumber = dayjs().get('month');
     const dayNumber = dayjs().get('day');
     const dateAll = dayjs();
