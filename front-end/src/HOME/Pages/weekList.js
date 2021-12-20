@@ -12,14 +12,20 @@ const WeekList = () => {
 
     const historique = useHistory();
     // data pour navbar
-    const data = {
+    const data = { 
         goBack: '/accueil',
         text: 'Mes souvenirs'
     }
 
+    const token = localStorage.getItem('token');
+
     useEffect(() => {
 
-        axios.get(`${config.url}/memories_weeks`, axiosHeaders.headers)
+        axios.get(`${config.url}/memories_weeks`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((memories) => {
 
                 const data = memories.data.data;

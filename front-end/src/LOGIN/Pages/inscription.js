@@ -3,6 +3,7 @@ import Logo from "../Components/logo";
 import Navigation from "../Components/nav";
 import axios from "axios";
 import config from "../../service/config";
+import { useHistory } from "react-router";
 
 
 const Inscription = () => {
@@ -10,6 +11,12 @@ const Inscription = () => {
     const [pseudo, setPseudo] = useState(null);
     const [password, setPassword] = useState("");
     const [check, setCheck] = useState("");
+
+    const historique = useHistory();
+
+    useEffect(() => {
+        localStorage.clear();
+    }, [])
 
     const handleSubmit = (e) => {
 
@@ -36,14 +43,25 @@ const Inscription = () => {
             
         } else {
 
-            errorPseudo.style.display = "none";
+            errorPseudo.style.display = "none"; 
             errorPassword.style.display = "none";
 
             axios.post(`${config.url}/inscription`, {
                 pseudo,
                 password
             })
-                .then(() => console.log('succès'))
+                .then(() => {
+
+                    axios.post(`${config.url}/connexion`, {
+                        pseudo,
+                        password
+                    })
+                        .then((data) => {
+                            localStorage.setItem('token', data.data.token);
+                            historique.push('/accueil');
+                        })
+                        .catch((err) => historique.push('/error'))
+                })
                 .catch((err) => {
 
                     const errorMsg = err.response.data.message;

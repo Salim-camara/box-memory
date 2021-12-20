@@ -15,6 +15,10 @@ const Connexion = () => {
     
     const historique = useHistory();
 
+    useEffect(() => {
+        localStorage.clear();
+    },[])
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -25,9 +29,7 @@ const Connexion = () => {
         })
             .then((data) => {
                 localStorage.setItem('token', data.data.token);
-                setTimeout(() => {
-                    historique.push('/accueil');
-                }, 0);
+                historique.push('/accueil');
             })
             .catch((err) => {
 

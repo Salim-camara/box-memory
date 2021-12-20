@@ -27,7 +27,7 @@ const Accueil = () => {
 
     const historique = useHistory();
     const token = localStorage.getItem('token');
-
+    
     useEffect(() => {
 
         // test de l'existance du souvenir
@@ -39,6 +39,7 @@ const Accueil = () => {
             .then((res) => {
                 if(res.data.data !== null) {
                     setCheckMemorie(true);
+                    console.log(token);
                 }
             })
             .catch((err) => historique.push('/error'));
@@ -54,6 +55,7 @@ const Accueil = () => {
             }
         })
             .then((res) => { 
+                console.log(token)
                 setDay(res.data.data.jour);
                 setPseudo(res.data.data.pseudo);
             })
@@ -170,7 +172,11 @@ const Accueil = () => {
                     emoji,
                     tags
 
-                }, axiosHeaders.headers)
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                     .then(() => {
                         window.location.reload();
                     })

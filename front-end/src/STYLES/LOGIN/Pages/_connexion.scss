@@ -12,10 +12,6 @@
 
 .inp--conn {
     @include input();
-
-    &:focus {
-        background-color: $secondary-color;
-    }
 }
 
 .error {

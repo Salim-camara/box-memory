@@ -15,6 +15,7 @@ const Week = () => {
     const [weekNum, setWeekNum] = useState(null);
 
     const historique = useHistory();
+    const token = localStorage.getItem('token');
 
     // data pour navbar
     const data = {
@@ -27,7 +28,11 @@ const Week = () => {
         const urlWeekNum = document.location.hash.slice(1);
         setWeekNum(urlWeekNum);
 
-        axios.post(`${config.url}/memories_week`, {weekNum: urlWeekNum}, axiosHeaders.headers)
+        axios.post(`${config.url}/memories_week`, {weekNum: urlWeekNum}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((data) => {
 
                 const item = data.data.data

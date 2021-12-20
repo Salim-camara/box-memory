@@ -53,7 +53,7 @@ exports.getState = (req, res, next) => {
             .then((monthReturned) => {
 
                 Memory.findOne({ 
-                    userId,
+                    userId: userId,
                     'date.dayNum': `${day}`,
                     'date.year': `${year}`,
                     'date.month': `${monthReturned}`

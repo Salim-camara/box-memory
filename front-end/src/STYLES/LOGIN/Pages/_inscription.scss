@@ -21,10 +21,6 @@
 
 .inp--insc {
     @include input();
-
-    &:focus {
-        background-color: $secondary-color;
-    }
 }
 
 .buttoncontainer {

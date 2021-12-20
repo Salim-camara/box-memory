@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
     try {
         User.findOne({ _id: userId })
         .then(() => {
-            console.log('cet utilisateur a été authentifié'); 
+            console.log('cet utilisateur a été authentifié '); 
             next();
         })
         .catch(() => console.log(`cet utilisateur n'existe pas`));
