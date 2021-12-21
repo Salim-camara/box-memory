@@ -30,6 +30,11 @@ const Accueil = () => {
     
     useEffect(() => {
 
+        // controle width
+        if(window.innerWidth > 1600) {
+            historique.push('/width');
+        }
+
         // test de l'existance du souvenir
         axios.get(`${config.url}/extras_check`, {
             headers: {
@@ -62,6 +67,8 @@ const Accueil = () => {
             .catch((err) => historique.push('/error'));
 
     }, []);
+
+    window.screen.orientation.lock("portrait-primary");
 
 
     // test de l'existance du souvenir

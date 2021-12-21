@@ -21,6 +21,11 @@ const WeekList = () => {
 
     useEffect(() => {
 
+        // controle width
+        if(window.innerWidth > 600) {
+            historique.push('/width');
+        }
+
         axios.get(`${config.url}/memories_weeks`, {
             headers: {
                 Authorization: `Bearer ${token}`

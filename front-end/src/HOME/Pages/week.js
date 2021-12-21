@@ -25,6 +25,11 @@ const Week = () => {
 
     useEffect(() => {
 
+        // controle width
+        if(window.innerWidth > 600) {
+            historique.push('/width');
+        }
+
         const urlWeekNum = document.location.hash.slice(1);
         setWeekNum(urlWeekNum);
 

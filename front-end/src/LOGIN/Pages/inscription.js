@@ -16,6 +16,11 @@ const Inscription = () => {
 
     useEffect(() => {
         localStorage.clear();
+
+        // controle width
+        if(window.innerWidth > 600) {
+            historique.push('/width');
+        }
     }, [])
 
     const handleSubmit = (e) => {

@@ -11,6 +11,7 @@ import Tags from "./HOME/Components/tags";
 import Week from "./HOME/Pages/week";
 import WeekList from "./HOME/Pages/weekList";
 import ErrorAuth from "./HOME/Components/errorAuth";
+import ErrorWidth from "./HOME/Components/errorWidth";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/week" exact component={ Week } />
         <Route path="/weeks" exact component={ WeekList } />
         <Route path="/error" exact component={ ErrorAuth } />
+        <Route path="/width" exact component={ ErrorWidth } />
       </Switch>
     </BrowserRouter>
 
