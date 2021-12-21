@@ -207,7 +207,7 @@ const Accueil = () => {
             {/* bloc INPUTS */}
             <div className="accueil__top">
                 <div className="accueil__top--text">
-                    Hello {pseudo}
+                   (en dev.) - Hello {pseudo}
                 </div>
                 <div className="accueil__top--side" onClick={ handleSide }> <i class="fas fa-bars burger-icon"></i> </div>
             </div>

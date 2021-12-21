@@ -39,7 +39,9 @@ const Card = ({ info }) => {
             break;
             case 'heart': return(heart);
             break;
-            default: return(fire);
+            case 'fire': return(fire);
+            break;
+            default: return(null);
         }
     }
 
@@ -52,10 +54,13 @@ const Card = ({ info }) => {
             </div>
 
             <div className="card__desc">
-                {desc}
+                {desc ? (`${desc}`) : ('Aucune description')}
             </div>
+
             <div className="card__tags">
-                <img src={handleEmoji()} style={{width: '30px', height: '30px'}} />
+                {emoji != null && (
+                    <img src={handleEmoji()} style={{width: '30px', height: '30px'}} />
+                )}
                 {(tag1 !== null) && (
                     <p className="card_tag">#{tag1}</p>
                 )}

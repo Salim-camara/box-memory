@@ -33,7 +33,8 @@ exports.signup = (req, res, next) => {
         desc: data.desc,
         emoji: data.emoji,
         tags: [data.tags.tag1, data.tags.tag2],
-        week,
+        // utilisation des semaines depuis des calculs (plus fiable)
+        week: switcher.weekNum(),
         userId,
         date: {
             // switcher convertit les nombres des jours/mois en string 
