@@ -1,0 +1,38 @@
+.orientation {
+    position: fixed;
+    @include dsc(center, center);
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    display: none;
+
+    &_title {
+        text-align: center;
+        color: $secondary-color;
+    }
+
+    &_container {
+        @include dsf(center, center);
+        width: 100%;
+        color: $secondary-color;
+        font-size: 80px;
+    }
+
+    &_phone {
+        transform: rotate(90deg);
+        color: $red;
+        margin-right: 35px;
+    }
+
+    &_arrow {
+        color: $secondary-color;
+        margin-right: 25px;
+        font-size: 40px;
+    }
+
+    &_phoneright {
+        color: $green;
+        margin-right: 25px;
+    }
+}

@@ -4,8 +4,8 @@ import Card from "../Components/card";
 import Navigation from "../Components/nav";
 import Sidebar from "../Components/sidebar";
 import config from "../../service/config";
-import axiosHeaders from "../../service/axiosHeaders";
 import { useHistory } from "react-router";
+import ErrorOrientation from "../Components/errorOrientation";
 
 
 
@@ -55,6 +55,8 @@ const Week = () => {
     
     return(
         <div className="week">
+
+            <ErrorOrientation />
 
             <Navigation data={ data }/>
             <div className="sidebar_accueil">

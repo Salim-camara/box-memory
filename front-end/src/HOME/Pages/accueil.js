@@ -14,6 +14,7 @@ import heart from "../../img/coeur.png";
 import fire from "../../img/fire.png";
 import MemorieExist from "../Components/memorieExist";
 import { useHistory } from "react-router";
+import ErrorOrientation from "../Components/errorOrientation";
 
 
 
@@ -60,15 +61,12 @@ const Accueil = () => {
             }
         })
             .then((res) => { 
-                console.log(token)
                 setDay(res.data.data.jour);
                 setPseudo(res.data.data.pseudo);
             })
             .catch((err) => historique.push('/error'));
 
     }, []);
-
-    window.screen.orientation.lock("portrait-primary");
 
 
     // test de l'existance du souvenir
@@ -199,16 +197,15 @@ const Accueil = () => {
         
         <div className="accueil">
 
-
             <MemorieExist />
-
-
 
             <div className="sidebar_accueil">
                 <Sidebar />
             </div>
 
             <Tags />
+            <ErrorOrientation />
+
 
 
             {/* bloc INPUTS */}

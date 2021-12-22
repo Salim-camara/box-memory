@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import config from "../../service/config";
-import axiosHeaders from "../../service/axiosHeaders";
 
 import Navigation from "../Components/nav";
 import Sidebar from "../Components/sidebar";
+import ErrorOrientation from "../Components/errorOrientation";
 
 
 const WeekList = () => {
@@ -90,6 +90,8 @@ const WeekList = () => {
 
     return(
         <div className="weeklist">
+
+            <ErrorOrientation />
 
             <Navigation data= {data}/>
             <div className="sidebar_accueil">

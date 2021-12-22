@@ -4,6 +4,7 @@ import Navigation from "../Components/nav";
 import axios from "axios";
 import config from "../../service/config";
 import { useHistory } from "react-router";
+import ErrorOrientation from "../../HOME/Components/errorOrientation";
 
 
 
@@ -50,6 +51,8 @@ const Connexion = () => {
     return(
 
         <div className="conn">
+
+            <ErrorOrientation />
             <Navigation />
             <Logo />
 

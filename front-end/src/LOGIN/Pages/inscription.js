@@ -4,6 +4,7 @@ import Navigation from "../Components/nav";
 import axios from "axios";
 import config from "../../service/config";
 import { useHistory } from "react-router";
+import ErrorOrientation from "../../HOME/Components/errorOrientation";
 
 
 const Inscription = () => {
@@ -90,6 +91,7 @@ const Inscription = () => {
     return(
         <div className="insc">
 
+            <ErrorOrientation />
             <Navigation />
             <Logo />
 
