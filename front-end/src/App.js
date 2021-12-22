@@ -15,7 +15,6 @@ import ErrorWidth from "./HOME/Components/errorWidth";
 
 function App() {
 
-  window.screen.orientation.lock("portrait-primary");
   return (
 
     <BrowserRouter>

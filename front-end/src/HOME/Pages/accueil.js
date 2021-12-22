@@ -32,7 +32,7 @@ const Accueil = () => {
     useEffect(() => {
 
         // controle width
-        if(window.innerWidth > 1600) {
+        if(window.innerWidth > 800) {
             historique.push('/width');
         }
 

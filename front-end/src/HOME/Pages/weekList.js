@@ -22,7 +22,7 @@ const WeekList = () => {
     useEffect(() => {
 
         // controle width
-        if(window.innerWidth > 600) {
+        if(window.innerWidth > 800) {
             historique.push('/width');
         }
 

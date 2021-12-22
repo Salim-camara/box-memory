@@ -12,7 +12,6 @@ const Connexion = () => {
 
     const [pseudo, setPseudo] = useState(null);
     const [password, setPassword] = useState("");
-    const error = document.querySelector('.error');
     
     const historique = useHistory();
 
@@ -20,7 +19,7 @@ const Connexion = () => {
         localStorage.clear();
 
         // controle width
-        if(window.innerWidth > 600) {
+        if(window.innerWidth > 800) {
             historique.push('/width');
         }
     },[])
@@ -39,6 +38,7 @@ const Connexion = () => {
             })
             .catch((err) => {
 
+                const error = document.querySelector('.error');
                 const errorMsg = err.response.data.message;
                 error.innerHTML = `${errorMsg}`;
                 error.style.display = "block";

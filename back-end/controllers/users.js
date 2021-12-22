@@ -83,6 +83,6 @@ module.exports.signin = (req, res, next) => {
                 })
                 .catch((err) => res.status(500).json({ message: 'bcrypt error ' + err }));
         })
-        .catch((err) => res.status(404).json({ message: `Ce pseudo n'existe pas. ` + err}));
+        .catch((err) => res.status(404).json({ message: `Ce pseudo n'existe pas. `}));
 }
 
