@@ -8,7 +8,7 @@ const Navigation = () => {
         
         <div className="nav__login">
             <NavLink exact to="/inscription" className="nav__login--insc" activeClassName="nav-active__login"> Inscription </NavLink>
-            <NavLink exact to="/connexion" className="nav__login--conn" activeClassName="nav-active__login"> Connexion </NavLink>
+            <NavLink exact to="/" className="nav__login--conn" activeClassName="nav-active__login"> Connexion </NavLink>
         </div>
     )
 }

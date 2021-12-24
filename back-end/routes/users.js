@@ -6,5 +6,6 @@ const usersControl = require('../controllers/users');
 router.post('/inscription', usersControl.signup);
 // route de connexion
 router.post('/connexion', usersControl.signin);
+router.get('/connexion', usersControl.getTestHeroku);
 
 module.exports = router;

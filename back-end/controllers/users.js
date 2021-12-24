@@ -86,3 +86,7 @@ module.exports.signin = (req, res, next) => {
         .catch((err) => res.status(404).json({ message: `Ce pseudo n'existe pas. `}));
 }
 
+module.exports.getTestHeroku = (req, res, next) => {
+    res.status(200).json({ message: 'hellow' });
+}
+

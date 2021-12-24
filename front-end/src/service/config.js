@@ -1,5 +1,5 @@
 module.exports = {
 
     // API url
-    url: 'http://localhost:3001'
+    url: 'https://boite-a-souvenirs.herokuapp.com'
 }

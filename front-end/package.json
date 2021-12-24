@@ -1,5 +1,6 @@
 {
   "name": "box",
+  "home-page": "https://lala-maganti.ma",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.1"
   }
 }

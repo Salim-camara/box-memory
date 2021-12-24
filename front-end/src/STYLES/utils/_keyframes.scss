@@ -16,7 +16,7 @@
   }
   to {
     transform: translateY(0);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -24,11 +24,11 @@
 @keyframes memorieCheck {
   from {
     transform: scale(0.9);
-    opacity: 50%;
+    opacity: 0.4;
   }
   to {
     transform: scale(1);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 

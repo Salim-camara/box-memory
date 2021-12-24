@@ -11,7 +11,7 @@ const Sidebar = () => {
     const handleConnect = () => {
 
         localStorage.clear();
-        historique.push('/connexion');
+        historique.push('/');
     }
 
     return(
@@ -29,7 +29,7 @@ const Sidebar = () => {
             </NavLink>
             <span className="sidebar--link">Rappels (en dev.)</span>
             <span className="sidebar--link">Paramètres (en dev.)</span>
-            <NavLink exact to="/connexion" className="deconnec" onClick={ handleConnect }>
+            <NavLink exact to="/" className="deconnec" onClick={ handleConnect }>
                 Déconnexion
             </NavLink>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./STYLES/main.scss";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Switch, Route } from "react-router-dom";
 
 // importation des différents components
 import Inscription from "./LOGIN/Pages/inscription";
@@ -17,10 +17,10 @@ function App() {
 
   return (
 
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route path="/inscription" exact component={ Inscription } />
-        <Route path="/connexion" exact component={ Connexion } />
+        <Route path="/" exact component={ Connexion } />
         <Route path="/accueil" exact component={ Accueil } />
         <Route path="/sidebar" exact component={ Sidebar } />
         <Route path="/tag" exact component={ Tags } />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/error" exact component={ ErrorAuth } />
         <Route path="/width" exact component={ ErrorWidth } />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
 
   );
 }

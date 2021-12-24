@@ -30,7 +30,7 @@ const Week = () => {
             historique.push('/width');
         }
 
-        const urlWeekNum = document.location.hash.slice(1);
+        const urlWeekNum = document.location.hash.split('#').reverse()[0];
         setWeekNum(urlWeekNum);
 
         axios.post(`${config.url}/memories_week`, {weekNum: urlWeekNum}, {
